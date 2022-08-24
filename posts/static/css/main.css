@@ -32,3 +32,34 @@ a{
     padding: 20px;
 }
 
+.post_form{
+    margin-left: 20px;
+    width: 50%;
+}
+
+.form-control{
+    background: gray;
+    width: 100%;
+    font-size: 12px;
+}
+
+.form-group{
+    margin-top: 10px;
+}
+
+.label{
+    margin-top: 18px;
+}
+
+.btn{
+    background-color: gold;
+    cursor: pointer;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.link{
+    color: #000;
+    text-decoration: none;
+}
