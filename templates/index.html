@@ -15,6 +15,19 @@
             <img class="image" src=" {{ post.thumbnail | cut:'posts' }} " alt="photo">
         </div>
     {% endfor %}
+    <div class="pagination">
+        
+        {% if posts.has_previous %}
+            <a href="{% url 'posts_home' %}?page={{ posts.previous_page_number }}" class="page-instructions">Previous</a>
+        {% endif %}
+
+        <p>Page {{ posts.number }} out of {{ posts.paginator.num_pages }}</p>
+
+        {% if posts.has_next %}
+            <a href="{% url 'posts_home' %}?page={{ posts.next_page_number }}" class="page-instructions">Next</a>
+        {% endif %}
+        
+    </div>
     
 {% endblock content %}
     
