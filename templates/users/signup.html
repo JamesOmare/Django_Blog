@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Create An Account</h1>
+<form method="post" class="post_form" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for item in form %}
+           <div class="form-group">
+            <p class="label">{{ item.label }}</p>
+            {{item}}
+            
+            {% if item.errors %}
+                
+                {% for error in item.errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+                    
+            {% endif %}
+                
+           </div>
+    {% endfor %}
+    <div class="form-group">
+        <input type="submit" value="sign up" class="btn">
+    </div>
+    <div class="form-group">
+        <small>
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </small>
+    </div>
+</form> 
+{% endblock content %}
+    

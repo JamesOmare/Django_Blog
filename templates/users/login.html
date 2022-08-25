@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Login</h1>
+<form method="post" class="post_form" enctype="multipart/form-data">
+    
+    {% if messages %}
+        
+        {% for message in messages %}
+            <p class="alert">{{ message }}</p>
+        {% endfor %}
+            
+    {% endif %}
+        
+
+    {% csrf_token %}
+    {% for item in form %}
+           <div class="form-group">
+            <p class="label">{{ item.label }}</p>
+            {{item}}
+           </div>
+    {% endfor %}
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn">
+    </div>
+    <div class="form-group">
+        <small>
+            <p>Don't have an account? <a href="{% url 'sign_up' %}">Register Here!</a></p>
+        </small>
+    </div>
+</form>
+{% endblock content %}
+    

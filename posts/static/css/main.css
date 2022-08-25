@@ -63,3 +63,15 @@ a{
     color: #000;
     text-decoration: none;
 }
+
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+.alert{
+    padding: 15px;
+    background-color: rgb(6, 95, 66);
+    color: white;
+    text-align: center;
+}

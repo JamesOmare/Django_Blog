@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from .forms import PostCreationForm
 from .models import Post
+from django.contrib.auth.decorators import login_required
 
 
 def index(request:HttpRequest):
@@ -35,6 +36,7 @@ def return_one_post(request:HttpRequest, post_id):
     #     return HttpRequest('Not Found')
     pass
 
+@login_required
 def create_post(request):
     form = PostCreationForm()
     
@@ -61,6 +63,7 @@ def post_detail(request, post_id):
     }
     return render(request, 'post_detail.html', context)
 
+@login_required
 def update_post(request, post_id):
     post_to_update = Post.objects.get(pk = post_id)
     form = PostCreationForm(instance = post_to_update)
