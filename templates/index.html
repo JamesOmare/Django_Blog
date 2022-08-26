@@ -9,10 +9,14 @@
         <div class="post">
             <a href="{% url 'post_detail' post_id=post.id  %}" class="link">
                 <h2><u>{{ post.id }}. {{ post.title }}</u></h2>
+                <img class="image" src=" {{ post.thumbnail | cut:'posts' }} " alt="photo">
             </a>
+            <div class="main-content">
+            <p>By: <u><b>{{ post.author }}</b></u></p>
             <p>{{ post.content }}</p>
-            <p>by <b>{{ post.author }}</b></p>
-            <img class="image" src=" {{ post.thumbnail | cut:'posts' }} " alt="photo">
+            </div>
+            
+            
         </div>
     {% endfor %}
     <div class="pagination">
